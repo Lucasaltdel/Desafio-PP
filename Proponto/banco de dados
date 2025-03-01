@@ -1,0 +1,15 @@
+CREATE DATABASE event_manager;
+
+USE event_manager;
+
+CREATE TABLE events (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    type ENUM('social', 'cultural', 'esportivo', 'corporativo', 'religioso', 'entretenimento', 'outros') NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    address VARCHAR(255) NOT NULL,
+    map_link VARCHAR(255),
+    start_date DATETIME NOT NULL,
+    price DECIMAL(10, 2),
+    UNIQUE(name)  -- Impede o cadastro de eventos com o mesmo nome
+);
